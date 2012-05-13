@@ -4,7 +4,7 @@
  *               for mp3/ogg splitting without decoding
  *
  * Copyright (c) 2002-2005 M. Trotta - <mtrotta@users.sourceforge.net>
- * Copyright (c) 2005-2011 Alexandru Munteanu - io_fx@yahoo.fr
+ * Copyright (c) 2005-2012 Alexandru Munteanu - io_fx@yahoo.fr
  *
  * http://mp3splt.sourceforge.net
  *
@@ -1346,7 +1346,7 @@ static const char splt_id3v1_genres[SPLT_ID3V1_NUMBER_OF_GENRES][25] = {
 /**
  * @brief Package version
  */
-#define SPLT_PACKAGE_VERSION "0.7.1.976"
+#define SPLT_PACKAGE_VERSION "0.7.2"
 #endif
 /**
  * @brief Package authors

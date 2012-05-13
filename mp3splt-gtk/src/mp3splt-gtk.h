@@ -3,7 +3,7 @@
  * mp3splt-gtk -- utility based on mp3splt,
  *                for mp3/ogg splitting without decoding
  *
- * Copyright: (C) 2005-2011 Alexandru Munteanu
+ * Copyright: (C) 2005-2012 Alexandru Munteanu
  * Contact: io_fx@yahoo.fr
  *
  * http://mp3splt.sourceforge.net/
@@ -48,6 +48,6 @@ GThread *create_thread(GThreadFunc func, gpointer data,
 void enter_threads();
 void exit_threads();
 
-#define MP3SPLT_GTK_DATE "01/04/12"
+#define MP3SPLT_GTK_DATE "13/05/12"
 
 #endif
