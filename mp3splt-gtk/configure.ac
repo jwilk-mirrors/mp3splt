@@ -32,23 +32,22 @@
 # Basic initialisations 
 #################################################
 
+m4_define([minimum_libmp3splt_version],[0.8.2])
+
 AC_PREREQ(2.62)
-AC_INIT(mp3splt-gtk, 0.8.2.1268, mp3splt.sf.net)
+AC_INIT(mp3splt-gtk, 0.8.2, mp3splt.sf.net)
 
 # tell autoconf where to put the temporary files and scripts
 # it generates. Seems to be more clean to put them into a subdir;
 # One of this files is gnome-doc-utils.make, which is needed to 
 # compile the help files.
 AC_CONFIG_AUX_DIR([build-aux])
-
 AC_CONFIG_MACRO_DIR([m4])
-
 # tell which file by being there indicates we are run from the
 # right directory
 AC_CONFIG_SRCDIR([src/mp3splt-gtk.c])
-
 # Initialize automake
-AM_INIT_AUTOMAKE(mp3splt-gtk, 0.8.2.1268)
+AM_INIT_AUTOMAKE
 
 # Tell autoconf where to put the output file that contains all
 # definitions our C program will need
@@ -215,9 +214,9 @@ fi
 #################################################
 #Check for libmp3splt
 
-PKG_CHECK_MODULES([LIBMP3SPLT], [libmp3splt = 0.8.2.1268],
+PKG_CHECK_MODULES([LIBMP3SPLT], [libmp3splt = minimum_libmp3splt_version],
 [],
-[ AC_MSG_ERROR(libmp3splt version 0.8.2.1268 needed :
+[ AC_MSG_ERROR(libmp3splt version minimum_libmp3splt_version needed :
 
 Download the latest version of libmp3splt at http://mp3splt.sourceforge.net/
 ) ])
@@ -322,7 +321,7 @@ if test "x$enable_c_debug" = xyes;then
   CFLAGS="$CFLAGS -g -Wall"
 fi
 
-AC_ARG_ENABLE(optimise, [AC_HELP_STRING([--enable-optimise],[ Enable O2 optimise. ]) ],
+AC_ARG_ENABLE(optimise, [AC_HELP_STRING([--enable-optimise],[ Enable O3 optimise. ]) ],
     [enable_optimise=$enableval],[enable_optimise="no"])
 if test "x$enable_optimise" = xyes;then
   CFLAGS="$CFLAGS -O3"

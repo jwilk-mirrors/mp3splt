@@ -32,11 +32,13 @@
 # Basic initialisations 
 #################################################
 
+m4_define([minimum_libmp3splt_version],[0.8.2])
+
 AC_PREREQ(2.56)
-AC_INIT(mp3splt, 2.5.2.1268, mtrotta@users.sourceforge.net)
+AC_INIT(mp3splt, 2.5.2, mtrotta@users.sourceforge.net)
 
 AC_CONFIG_SRCDIR([src/mp3splt.c])
-AM_INIT_AUTOMAKE(mp3splt, 2.5.2.1268)
+AM_INIT_AUTOMAKE
 AM_CONFIG_HEADER([config.h])
 AM_MAINTAINER_MODE([enable])
 
@@ -53,6 +55,12 @@ AM_GNU_GETTEXT([external])
 AM_GNU_GETTEXT_VERSION([0.13.1])
 
 AC_DEFINE_UNQUOTED([LIBMP3SPLT_WITH_SONAME], "libmp3splt0", [libmp3splt library with soname])
+
+#################################################################
+# Check for functions
+#################################################################
+
+AC_CHECK_FUNCS([getline])
 
 #################################################################
 # Check for the type of the host
@@ -91,9 +99,9 @@ AC_MSG_RESULT($HOST)
 #################################################
 #Check for libmp3splt
 
-PKG_CHECK_MODULES([LIBMP3SPLT], [libmp3splt = 0.8.2.1268],
+PKG_CHECK_MODULES([LIBMP3SPLT], [libmp3splt = minimum_libmp3splt_version],
 [],
-[ AC_MSG_ERROR(libmp3splt version 0.8.2.1268 needed :
+[ AC_MSG_ERROR(libmp3splt version minimum_libmp3splt_version needed :
 
 Download the latest version of libmp3splt at http://mp3splt.sourceforge.net/
 ) ])
@@ -121,7 +129,7 @@ if test "x$enable_c_debug" = xyes;then
   CFLAGS="$CFLAGS -g -Wall"
 fi
 
-AC_ARG_ENABLE(optimise, [AC_HELP_STRING([--enable-optimise],[ Enable O2 optimise. ]) ],
+AC_ARG_ENABLE(optimise, [AC_HELP_STRING([--enable-optimise],[ Enable O3 optimise. ]) ],
     [enable_optimise=$enableval],[enable_optimise="no"])
 if test "x$enable_optimise" = xyes;then
   CFLAGS="$CFLAGS -O3"

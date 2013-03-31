@@ -36,14 +36,14 @@
 #inspired from gtk sources
 m4_define([libmp3splt_major_version], [0])
 m4_define([libmp3splt_minor_version], [8])
-m4_define([libmp3splt_micro_version], [2.1268])
+m4_define([libmp3splt_micro_version], [2])
 m4_define([libmp3splt_version],
           [libmp3splt_major_version.libmp3splt_minor_version.libmp3splt_micro_version])
 
 AC_PREREQ([2.62])
 AC_INIT([libmp3splt],[libmp3splt_version],[m@ioalex.net])
 AC_CONFIG_AUX_DIR([libltdl/config])
-AM_INIT_AUTOMAKE([libmp3splt], [libmp3splt_version])
+AM_INIT_AUTOMAKE
 AC_CONFIG_HEADERS([config.h])
 AM_MAINTAINER_MODE([enable])
 
